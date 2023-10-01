@@ -1,0 +1,24 @@
+.initialize__cover {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.initialize__cover > h1 {
+  font-family: "Pixelify Sans", cursive;
+  font-weight: bold;
+  font-size: 50px;
+  animation: vibrate 0.5s infinite;
+}
+@keyframes vibrate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}

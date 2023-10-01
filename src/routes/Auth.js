@@ -1,39 +1,38 @@
-import {
-  createUserWithEmailAndPassword,
-  GithubAuthProvider,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
 import React, { useState } from "react";
-import AuthForm from "../components/AuthForm";
-import { auth } from "../fbase";
+import AuthForm from "../components/auth/AuthForm";
+import AuthGraphic from "../components/auth/AuthGraphic";
+import AuthSocialForm from "../components/auth/AuthSocialForm";
+import style from "./Auth.module.css";
 
 const Auth = () => {
-  const onSocialClick = async (event) => {
-    const {
-      target: { name },
-    } = event;
-    let provider;
-    if (name === "google") {
-      provider = new GoogleAuthProvider();
-    } else if (name === "github") {
-      provider = new GithubAuthProvider();
-    }
-    const data = await signInWithPopup(auth, provider);
-    console.log(data);
-  };
+  const [newAccount, setNewAccount] = useState(false);
+  const toggleAccount = () => setNewAccount((prev) => !prev);
+
   return (
-    <div>
+    <div className={style.contents__box}>
+      <AuthGraphic />
       <div>
-        <AuthForm />
+        <div className={style.contents__box2}>
+          <h1 className={style.title}>CONNEC</h1>
+          <div>
+            <AuthForm newAccount={newAccount} />
+          </div>
+          {!newAccount && (
+            <>
+              <span className={style.social__title}>소셜 로그인</span>
+              <div className={style.social__login}>
+                <AuthSocialForm />
+              </div>
+            </>
+          )}
+        </div>
+        <div className={style.create__account}>
+          계정이 {newAccount ? "있다면" : "없으신가요"}?{" "}
+          <span onClick={toggleAccount}>
+            {newAccount ? "로그인" : "가입하기"}
+          </span>
+        </div>
       </div>
-      <button name="google" onClick={onSocialClick}>
-        Continue with Google
-      </button>
-      <button name="github" onClick={onSocialClick}>
-        Continue with Github
-      </button>
     </div>
   );
 };

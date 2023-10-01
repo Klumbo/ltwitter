@@ -1,15 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const Navigation = ({ userObj }) => (
-  <nav>
+import style from "./Navigation.module.css";
+import { AiOutlineHome } from "react-icons/ai";
+import { BsPersonCircle } from "react-icons/bs";
+const Navigation = () => (
+  <nav className={style.navigation}>
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <AiOutlineHome />
+        </Link>
       </li>
+      <div className={style.parsor}></div>
       <li>
         <Link to="/profile">
-          {userObj.displayName ? userObj.displayName : "사용자"}의 Profile
+          <BsPersonCircle />
         </Link>
       </li>
     </ul>

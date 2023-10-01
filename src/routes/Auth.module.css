@@ -1,0 +1,68 @@
+.contents__box {
+  font-family: "Pixelify Sans", cursive;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5rem;
+  justify-content: center;
+}
+.contents__box2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25px;
+  padding-top: 0;
+  padding-bottom: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+.title {
+  font-family: "Pixelify Sans", cursive;
+  font-size: 45px;
+  margin: 15px;
+  margin-bottom: 30px;
+}
+.social__login {
+  display: flex;
+  flex-direction: column;
+}
+.social__title {
+  font-family: "SUITE-Regular";
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 18px;
+  margin: 8px 0px;
+}
+.social__title::before,
+.social__title::after {
+  content: "";
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.45);
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 8px;
+}
+.create__account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SUITE-Regular";
+  margin-top: 0.5rem;
+  border: 1px solid #dbdbdb;
+  height: 3rem;
+  font-size: 15px;
+}
+.create__account > span {
+  color: #0095f6;
+  font-weight: bold;
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 670px) {
+  .contents__box {
+    margin-top: 3rem;
+  }
+}

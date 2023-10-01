@@ -1,0 +1,30 @@
+.navigation {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 3rem;
+  border-top: 1px solid grey;
+  font-size: 20px;
+  background: white;
+}
+.navigation * {
+  color: rgb(49, 49, 49);
+}
+.navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.navigation li {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parsor {
+  width: 0.7px;
+  background: rgb(205, 205, 205);
+}

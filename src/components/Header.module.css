@@ -1,0 +1,14 @@
+.header {
+  border-bottom: 1px solid grey;
+  font-family: "Pixelify Sans", cursive;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.header > h1 {
+  margin: 7px 10px;
+}
+.header span {
+  font-size: 10px;
+}

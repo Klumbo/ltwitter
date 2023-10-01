@@ -1,0 +1,23 @@
+.social__login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5rem;
+  width: 10.5rem;
+  font-size: 14.5px;
+  font-family: "SUITE-Regular";
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(66, 186, 130);
+  color: whitesmoke;
+  margin: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.social__login:hover {
+  opacity: 0.8;
+}
+.social__login * {
+  vertical-align: middle;
+}

@@ -2,11 +2,13 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { addDoc, collection, query, setDoc } from "firebase/firestore";
+import { getDownloadURL, ref } from "firebase/storage";
 import { useState } from "react";
-import { auth } from "../fbase";
+import { auth, db, storage } from "../../fbase";
+import style from "./AuthForm.module.css";
 
-const AuthForm = () => {
-  const [newAccount, setNewAccount] = useState(true);
+const AuthForm = ({ newAccount }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,31 +33,33 @@ const AuthForm = () => {
       setError(error.message);
     }
   };
-  const toggleAccount = () => setNewAccount((prev) => !prev);
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className={style.login__form}>
         <input
           name="email"
           type="text"
-          placeholder="Email"
+          placeholder="이메일"
           required
           onChange={onChange}
+          className={style.input}
         />
         <input
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder="비밀번호"
           required
           onChange={onChange}
+          className={style.input}
         />
-        <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-        {error}
+        <input
+          type="submit"
+          value={newAccount ? "회원가입" : "로그인"}
+          className={style.button}
+        />
+        <span style={{ color: "red" }}>{error}</span>
       </form>
-      <span onClick={toggleAccount}>
-        {newAccount ? "Sign in" : "Create Account"}
-      </span>
     </>
   );
 };
